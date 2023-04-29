@@ -1,9 +1,10 @@
 import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
+import {NumberWidget, Widget, WidgetType} from './src/componenets/Widget';
 
 const App = () => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.page}>
       <View style={styles.container}>
         <View style={styles.metaConntainer}>
           <Image
@@ -25,7 +26,22 @@ const App = () => {
         />
 
         <View style={styles.controlContiner}>
-          <NumberWidget></NumberWidget>
+          <NumberWidget
+            style={styles.noramlWidget}
+            type={WidgetType.Like}
+            count={10}
+          />
+          <NumberWidget
+            style={styles.noramlWidget}
+            type={WidgetType.Comment}
+            count={10}
+          />
+          <NumberWidget
+            style={styles.wideWidget}
+            type={WidgetType.Share}
+            count={10}
+          />
+          <Widget type={WidgetType.More} />
         </View>
       </View>
     </SafeAreaView>
@@ -35,10 +51,15 @@ const App = () => {
 export default App;
 
 const styles = StyleSheet.create({
+  page: {
+    flex: 1,
+    backgroundColor: '#f0f0f0',
+  },
   container: {
     width: '90%',
     alignSelf: 'center',
-    borderWidth: 1,
+    backgroundColor: '#ffffff99',
+    borderRadius: 5,
     padding: 10,
     gap: 20,
   },
@@ -47,7 +68,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 10,
-    // borderWidth: 0.5,
     height: 60,
   },
   avatar: {
@@ -68,7 +88,7 @@ const styles = StyleSheet.create({
   },
   feedBody: {
     width: '100%',
-    // height: 300,
+
     gap: 20,
   },
   textPost: {
@@ -77,8 +97,20 @@ const styles = StyleSheet.create({
   imagePost: {
     width: '100%',
     aspectRatio: 4 / 3,
+    borderRadius: 5,
   },
   controlContiner: {
     flexDirection: 'row',
+  },
+  widgetContainer: {
+    flexDirection: 'row',
+    gap: 10,
+    flex: 1,
+  },
+  noramlWidget: {
+    flex: 1,
+  },
+  wideWidget: {
+    flex: 2,
   },
 });
