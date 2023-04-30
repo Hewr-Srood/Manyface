@@ -2,6 +2,8 @@ import { ActivityIndicator, Dimensions, FlatList, StyleSheet, Text, View } from 
 import { useEffect, useState } from 'react';
 import FeedFactory from './FeedFactory';
 import { FeedModel, IFeedResp } from '../Models/FeedModel';
+import withErroBoundary from '../HOC/withErroBoundary';
+import ErrorPage from './ErrorPage';
 
 const renderItem = ({ item }: { item: FeedModel }) => <FeedFactory {...item} />;
 
@@ -22,7 +24,7 @@ const Moment = () => {
     const response = await fetch('https://my.api.mockaroo.com/manyface.json?key=0ecdabb0');
     const mockData: IFeedResp[] = await response.json();
     const data = mockData.map(item => new FeedModel(item));
-    setFeed(data);
+    setFeed(mockData);
   };
   useEffect(() => {
     console.log('FeedModal mounted');
@@ -46,4 +48,4 @@ const Moment = () => {
   );
 };
 
-export default Moment;
+export default withErroBoundary(Moment, ErrorPage, undefined);

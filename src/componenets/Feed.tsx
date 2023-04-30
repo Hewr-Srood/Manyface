@@ -1,6 +1,7 @@
 import { Image, StyleSheet, Text } from 'react-native';
 import { withMetaAndControls } from '../HOC/withMetaAndControls';
 import { FeedModel } from '../Models/FeedModel';
+import withErroBoundary from '../HOC/withErroBoundary';
 
 const Feed = (props: FeedModel) => {
   return (
@@ -11,7 +12,7 @@ const Feed = (props: FeedModel) => {
   );
 };
 
-export default withMetaAndControls(Feed);
+export default withErroBoundary(withMetaAndControls(Feed));
 
 const styles = StyleSheet.create({
   textPost: {
