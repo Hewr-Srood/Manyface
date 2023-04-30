@@ -1,5 +1,5 @@
-import {StyleSheet, Text, View, ViewStyle} from 'react-native';
-import React, {FC} from 'react';
+import { StyleSheet, Text, View, ViewStyle } from 'react-native';
+import React, { FC } from 'react';
 import Icon from 'react-native-vector-icons/Feather';
 export enum WidgetType {
   Like = 'Like',
@@ -28,11 +28,11 @@ function getIconName(type: WidgetType) {
       return '';
   }
 }
-export const Widget: FC<WidgetProps> = ({type}) => {
-  return <Icon name={getIconName(type)} size={20} color="gray" />;
+export const Widget: FC<WidgetProps> = ({ type }) => {
+  return <Icon name={getIconName(type)} size={20} color='gray' />;
 };
 
-export const NumberWidget: FC<NumberWidgetProps> = ({type, count, style}) => {
+export const NumberWidget: FC<NumberWidgetProps> = ({ type, count, style }) => {
   return (
     <View style={[styles.numberWidget, style]}>
       <Widget type={type} />

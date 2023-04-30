@@ -1,49 +1,12 @@
-import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
-import React from 'react';
-import {NumberWidget, Widget, WidgetType} from './src/componenets/Widget';
+import { Image, SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { NumberWidget, Widget, WidgetType } from './src/componenets/Widget';
+
+import Moment from './src/componenets/Moement';
 
 const App = () => {
   return (
     <SafeAreaView style={styles.page}>
-      <View style={styles.container}>
-        <View style={styles.metaConntainer}>
-          <Image
-            style={styles.avatar}
-            source={{
-              uri: 'https://avatars.githubusercontent.com/u/1024025?v=4',
-            }}
-          />
-          <View style={styles.infoContainer}>
-            <Text style={styles.name}>John Doe</Text>
-            <Text style={styles.date}> 1 hour ago</Text>
-          </View>
-        </View>
-
-        <Text style={styles.textPost}>Some text</Text>
-        <Image
-          style={styles.imagePost}
-          source={{uri: 'https://picsum.photos/300/300'}}
-        />
-
-        <View style={styles.controlContiner}>
-          <NumberWidget
-            style={styles.noramlWidget}
-            type={WidgetType.Like}
-            count={10}
-          />
-          <NumberWidget
-            style={styles.noramlWidget}
-            type={WidgetType.Comment}
-            count={10}
-          />
-          <NumberWidget
-            style={styles.wideWidget}
-            type={WidgetType.Share}
-            count={10}
-          />
-          <Widget type={WidgetType.More} />
-        </View>
-      </View>
+      <Moment />
     </SafeAreaView>
   );
 };
@@ -53,6 +16,7 @@ export default App;
 const styles = StyleSheet.create({
   page: {
     flex: 1,
+
     backgroundColor: '#f0f0f0',
   },
   container: {
@@ -88,7 +52,6 @@ const styles = StyleSheet.create({
   },
   feedBody: {
     width: '100%',
-
     gap: 20,
   },
   textPost: {
