@@ -24,7 +24,7 @@ const Moment = () => {
     const response = await fetch('https://my.api.mockaroo.com/manyface.json?key=0ecdabb0');
     const mockData: IFeedResp[] = await response.json();
     const data = mockData.map(item => new FeedModel(item));
-    setFeed(mockData);
+    setFeed(data);
   };
   useEffect(() => {
     console.log('FeedModal mounted');
