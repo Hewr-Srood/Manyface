@@ -1,12 +1,13 @@
-import { Image, StyleSheet, Text } from 'react-native';
+import { Image, StyleSheet } from 'react-native';
 import { withMetaAndControls } from '../HOC/withMetaAndControls';
 import { FeedModel } from '../Models/FeedModel';
 import withErroBoundary from '../HOC/withErroBoundary';
+import ExapndaleText from './ExapndaleText';
 
 const Feed = (props: FeedModel) => {
   return (
     <>
-      <Text style={styles.textPost}>{props.feed.text}</Text>
+      <ExapndaleText numberOfLines={2} textStyle={styles.textPost} text={props.feed.text} />
       <Image style={styles.imagePost} source={{ uri: props.feed.images[0] }} />
     </>
   );

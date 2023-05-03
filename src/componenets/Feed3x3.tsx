@@ -1,12 +1,13 @@
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 import { withMetaAndControls } from '../HOC/withMetaAndControls';
 import { FeedModel } from '../Models/FeedModel';
 import withErroBoundary from '../HOC/withErroBoundary';
+import ExapndaleText from './ExapndaleText';
 
 const Feed3x3 = (props: FeedModel) => {
   return (
     <>
-      <Text style={styles.textPost}>{props.feed.text}</Text>
+      <ExapndaleText numberOfLines={2} textStyle={styles.textPost} text={props.feed.text} />
       <View style={styles.gridContainer}>
         {props.feed.images.slice(0, 9).map((image, index) => {
           return (
