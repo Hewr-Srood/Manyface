@@ -1,14 +1,15 @@
-import { Image, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { withMetaAndControls } from '../HOC/withMetaAndControls';
 import { FeedModel } from '../Models/FeedModel';
 import withErroBoundary from '../HOC/withErroBoundary';
 import ExapndaleText from './ExapndaleText';
+import LoomingImage from './LoomingImage';
 
 const Feed = (props: FeedModel) => {
   return (
     <>
-      <ExapndaleText numberOfLines={2} textStyle={styles.textPost} text={props.feed.text} />
-      <Image style={styles.imagePost} source={{ uri: props.feed.images[0] }} />
+      <ExapndaleText textStyle={styles.textPost} text={props.feed.text} />
+      <LoomingImage style={styles.imagePost} source={{ uri: props.feed.images[0] }} />
     </>
   );
 };
@@ -23,5 +24,6 @@ const styles = StyleSheet.create({
     width: '100%',
     aspectRatio: 4 / 3,
     borderRadius: 5,
+    overflow: 'hidden',
   },
 });
