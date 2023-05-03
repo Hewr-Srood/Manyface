@@ -1,6 +1,7 @@
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { NumberWidget, Widget, WidgetType } from '../componenets/Widget';
 import { FeedModel } from '../Models/FeedModel';
+import LoomingImage from '../componenets/LoomingImage';
 
 export const withMetaAndControls = (Feed: React.ComponentType<any>) => {
   return (props: FeedModel) => {
@@ -8,7 +9,7 @@ export const withMetaAndControls = (Feed: React.ComponentType<any>) => {
       <View style={styles.container}>
         {/* meta */}
         <View style={styles.metaConntainer}>
-          <Image
+          <LoomingImage
             style={styles.avatar}
             source={{
               uri: props.meta.avatarUri,
