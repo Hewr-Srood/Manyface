@@ -1,8 +1,9 @@
-import { Image, SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import { NumberWidget, Widget, WidgetType } from './src/componenets/Widget';
+import { SafeAreaView, StyleSheet, UIManager } from 'react-native';
 
 import Moment from './src/componenets/Moement';
 
+// Enable LayoutAnimation on Android
+UIManager.setLayoutAnimationEnabledExperimental?.(true);
 const App = () => {
   return (
     <SafeAreaView style={styles.page}>
