@@ -4,6 +4,7 @@ import FeedFactory from './FeedFactory';
 import { FeedModel, IFeedResp } from '../Models/FeedModel';
 import withErroBoundary from '../HOC/withErroBoundary';
 import ErrorPage from './ErrorPage';
+import { RotatingCircle } from './LoadingInndicator';
 
 const renderItem = ({ item }: { item: FeedModel }) => <FeedFactory {...item} />;
 const ListEmptyComponent = () => (
@@ -14,7 +15,7 @@ const ListEmptyComponent = () => (
       justifyContent: 'center',
       alignItems: 'center',
     }}>
-    <ActivityIndicator size='large' color='coral' />
+    <RotatingCircle size={40} />
   </View>
 );
 const Moment = () => {
